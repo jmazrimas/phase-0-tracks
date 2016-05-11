@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Custom T-Shirt Maker!</title>
+</head>
+<body>
+<form action="success.html" method="post" id="shirtform">
+  <div>
+    <label>Name</label>
+    <input type="text" name="customername">
+  </div>
+  <div>
+    <label>Email</label>
+    <input type="email" name="customeremail">
+  </div>
+ <!-- <div>
+    <label>Shirt Text</label>
+    <input type="textarea" name="tshirttext">
+  </div>
+  -->
+  <textarea name="tshirttext" form="shirtform">Enter tshirt text here...</textarea><br>
+  <div>
+    <label>Shirt Size</label>
+    <select name="size">
+    	<option value="S">Small</option>
+    	<option value="M">Medium</option>
+    	<option value="L">Large</option>
+    </select>
+  </div>
+  <div>
+    <label>Quantity</label>
+    <input type="number" name="qty">
+  </div>
+  <div>
+    <label>Desired Delivery Date</label>
+    <input type="datetime-local" name="duedate">
+  </div>
+  
+  <button type="submit">Submit Form</button>
+</form>
+
+
+</body>
+</html>
