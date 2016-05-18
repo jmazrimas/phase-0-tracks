@@ -47,3 +47,21 @@ main {
   display: inline-block;
   vertical-align: top;
 }
+
+@media screen and (max-width: 420px) {
+  .width200 {
+    width: 100%;
+  }
+}
+
+@media only screen 
+ and (min-device-width: 375px) 
+ and (max-device-width: 667px) 
+ and (-webkit-min-device-pixel-ratio: 2) {
+  .width200 {
+    width: 100%;
+  }
+  body {
+    max-width: 500px;
+  }
+}
