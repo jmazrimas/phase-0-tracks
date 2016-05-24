@@ -1,0 +1,55 @@
+=======ELEVATOR PSEUDOCODE========
+
+(Assuming this algo starts with a destination floor as an input)
+
+If "destination floor" > "current floor"
+    If "up arrow" is not pressed, press it and note intended direction as "Up"
+    else, wait
+else
+    if "down arrow" is not pressed, press it and note intended direction as "down"
+    else, wait
+
+When door opens and signal direction =  intended direction, enter that car
+
+Press button where floor number = "destination floor"
+
+When door = open
+    If current floor = destination floor, exit car
+    else, wait
+
+=======DOG WALK PSEUDOCODE========
+
+If current time = walk time
+    While dog is not present
+        Call dog
+        Wait 10 seconds
+    Put leash on dog, exit apartment
+    Turn left
+    Walk 2 steps
+    While current address does not equal home address
+        Walk 2 steps
+        If dog = stopped
+            if dogstatus = going1 or going2 (aka "using the facilities")
+                while dogstatus = going1 or going2
+                wait 1 second
+            else if dogstatus = sniffing
+                set sniffwait = 0
+                while dogstatus = sniffing and sniffwait < 6
+                    wait 2 seconds
+                    call dog to move along
+                    set sniffwait = sniffwait+1
+                pull dog lightly with leash
+            else pull dog lightly with leash
+        if "at corner" =  true
+            turn left
+    Turn left
+    enter apartment
+    remove dog leash
+    if waterlevel < 2 cups
+        pick up water bowl, go to sink
+        while waterlevel < 6 cups
+            add .5 cups water to bowl
+        return water bowl to previous location
+
+
+

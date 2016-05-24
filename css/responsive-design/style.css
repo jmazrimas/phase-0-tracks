@@ -14,6 +14,13 @@ cite {
   padding-left: 0px;
 }
 
+.width200 {
+  width: 20%;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 2%;
+}
+
 /* you're welcome to edit the
 image, figure, and figcaption CSS if you'd like, 
 but it's optional! */
@@ -32,10 +39,14 @@ figcaption {
 }
 
 body {
+<<<<<<< HEAD
   display: inline;
   max-width: 960px;
   margin-right: auto;
   margin-left: auto
+=======
+  max-width: 960px;
+>>>>>>> 05824585574586c64895bbbf832f9b55718288ca
 }
 
 main {
@@ -51,6 +62,9 @@ main {
 }
 
 /*@media only screen 
+=======
+@media only screen 
+>>>>>>> 05824585574586c64895bbbf832f9b55718288ca
  and (min-device-width: 375px) 
  and (max-device-width: 667px) 
  and (-webkit-min-device-pixel-ratio: 2) {
@@ -58,6 +72,7 @@ main {
     width: 100%;
   }
   body {
+<<<<<<< HEAD
     max-width: 275px;
   }
 }*/
@@ -71,5 +86,9 @@ main {
 @media only screen and (min-width: 736px) {
   body{
     max-width: 560px;
+  }
+}
+=======
+    max-width: 500px;
   }
 }
