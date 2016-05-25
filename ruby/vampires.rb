@@ -1,7 +1,7 @@
 
 
-# puts "What is your name?"
-# name=gets.chomp
+puts "What is your name?"
+name=gets.chomp
 
 puts "How old are you?"
 age=gets.chomp
@@ -11,17 +11,53 @@ puts "What year were you born?"
 year=gets.chomp
 year=year.to_i
 
-# puts "Our company cafeteria serves garlic bread. Should we order some for you?"
-# bread=gets.chomp
+	currentyear=Time.new.year.to_i
 
-# puts "Would you like to enroll in the company’s health insurance?"
-# health=gets.chomp
+	yearage=currentyear-year
 
-currentyear=Time.new.year.to_i
+	if yearage!=age
+		agecheck=false
+	else agecheck=true
+	end
 
-yearage=currentyear-year
+puts "Our company cafeteria serves garlic bread. Should we order some for you?"
+bread=gets.chomp
 
-if yearage!=age
-	agecheck=false
-else agecheck=true
+	if (bread =~ /yes/)==nil
+		breadcheck=false
+	else breadcheck=true
+	end
+
+puts "Would you like to enroll in the company’s health insurance?"
+health=gets.chomp
+
+	if (health =~ /yes/)==nil
+		healthcheck=false
+	else healthcheck=true
+	end
+
+
+if agecheck && (breadcheck || healthcheck)
+	vampcheck="Probably not a vampire."
+else  vampcheck="Results inconclusive."
 end
+
+if  !agecheck && (!breadcheck || !healthcheck)
+	vampcheck="Probably a vampire."
+elsif vampcheck!=nil
+else  vampcheck="Results inconclusive."
+end
+
+if !agecheck && !breadcheck && !healthcheck
+	vampcheck="Almost certainly a vampire"
+elsif vampcheck!=nil
+else  vampcheck="Results inconclusive."
+end
+
+if name=="Drake Cula" || name=="Tu Fang"
+	vampcheck="Definitely a vampire."
+elsif vampcheck!=nil
+else  vampcheck="Results inconclusive."
+end
+
+puts vampcheck
