@@ -20,17 +20,6 @@
 # print to screen
 ################PSEUDO###################
 
-answer=nil
-
-loop do
-	puts "do you want to encrypt or decrypt?"
-	answer=gets.chomp
-	break if answer=="encrypt"
-	break if answer=="decrypt"
-end
-
-puts "what is the password you want to #{answer}?"
-word=gets.chomp
 
 def encrypt(eword)
 	strlen=eword.length
@@ -69,6 +58,18 @@ def decrypt(dword)
 	end
 	return dword
 end
+
+answer=nil
+
+loop do
+	puts "do you want to encrypt or decrypt?"
+	answer=gets.chomp
+	break if answer=="encrypt"
+	break if answer=="decrypt"
+end
+
+puts "what is the password you want to #{answer}?"
+word=gets.chomp
 
 if answer=="encrypt"
 	p encrypt(word)
