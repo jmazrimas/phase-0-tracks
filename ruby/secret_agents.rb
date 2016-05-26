@@ -16,30 +16,27 @@
 
 # puts "what do you want to encrypt"
 # word=gets.chomp
-
 # $strlen=word.length
 
-# def encrypt(eword)
-# 	counter = 0
-# 	while counter < $strlen
-# 		if eword[counter]==" "
-# 		elsif eword[counter]=="z"
-# 		 	eword[counter]="a"
-# 		else
-# 		eword[counter]=eword[counter].next
-# 	end
-# 	counter+=1
-# 	end
-# 	p eword
-# end
+def encrypt(eword)
+	strlen=eword.length
+	counter = 0
+	while counter < strlen
+		if eword[counter]==" "
+		elsif eword[counter]=="z"
+		 	eword[counter]="a"
+		else
+		eword[counter]=eword[counter].next
+	end
+	counter+=1
+	end
+	p eword
+end
 
-# encrypt(word)
+# puts "what do you want to decrypt?"
+# word2=gets.chomp
 
-puts "what do you want to decrypt?"
-word2=gets.chomp
-
-$strlen2=word2.length
-
+# $strlen2=word2.length
 
 def alphamethod(currentletter)
 	alpha="abcdefghijklmnopqrstuvwxyz"
@@ -48,8 +45,10 @@ def alphamethod(currentletter)
 end
 
 def decrypt(dword)
+	strlen=dword.length
 	counter=0
-	while counter<$strlen2
+	# while counter<$strlen2
+	while counter<strlen
 		if dword[counter]==" "
 		elsif dword[counter]=="a"
 		 	dword[counter]="z"
@@ -61,4 +60,8 @@ def decrypt(dword)
 	p dword
 end
 
-decrypt(word2)
+
+encrypt("abc")
+encrypt("zed")
+decrypt("bcd")
+decrypt("afe") 
