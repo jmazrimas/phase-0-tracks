@@ -39,32 +39,44 @@ while iter<numemployees.to_i
 			healthcheck=false
 		else healthcheck=true
 		end
-
-
-	if agecheck && (breadcheck || healthcheck)
-		vampcheck="Probably not a vampire."
-	else  vampcheck="Results inconclusive."
+	allergy=nil
+	loop do
+		puts "Please list any allergies, and type 'done' when finished."
+		allergy=gets.chomp
+		break if allergy=="sunshine"
+		break if allergy=="done"
 	end
 
-	if  !agecheck && (!breadcheck || !healthcheck)
-		vampcheck="Probably a vampire."
-	elsif vampcheck!=nil
-	else  vampcheck="Results inconclusive."
-	end
-
-	if !agecheck && !breadcheck && !healthcheck
-		vampcheck="Almost certainly a vampire"
-	elsif vampcheck!=nil
-	else  vampcheck="Results inconclusive."
-	end
-
-	if name=="Drake Cula" || name=="Tu Fang"
+	case
+	when allergy=="sunshine"
 		vampcheck="Definitely a vampire."
-	elsif vampcheck!=nil
-	else  vampcheck="Results inconclusive."
-	end
+	else 
+		if agecheck && (breadcheck || healthcheck)
+			vampcheck="Probably not a vampire."
+		else  vampcheck="Results inconclusive."
+		end
 
+		if  !agecheck && (!breadcheck || !healthcheck)
+			vampcheck="Probably a vampire."
+		elsif vampcheck!=nil
+		else  vampcheck="Results inconclusive."
+		end
+
+		if !agecheck && !breadcheck && !healthcheck
+			vampcheck="Almost certainly a vampire"
+		elsif vampcheck!=nil
+		else  vampcheck="Results inconclusive."
+		end
+
+		if name=="Drake Cula" || name=="Tu Fang"
+			vampcheck="Definitely a vampire."
+		elsif vampcheck!=nil
+		else  vampcheck="Results inconclusive."
+		end
+	end
 	puts vampcheck
 
 	iter += 1
 end
+
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
