@@ -14,9 +14,6 @@
 # 	subtract 1 from current position
 # 	output letter from index that matches that position
 
-# puts "what do you want to encrypt"
-# word=gets.chomp
-# $strlen=word.length
 
 def encrypt(eword)
 	strlen=eword.length
@@ -33,10 +30,6 @@ def encrypt(eword)
 	p eword
 end
 
-# puts "what do you want to decrypt?"
-# word2=gets.chomp
-
-# $strlen2=word2.length
 
 def alphamethod(currentletter)
 	alpha="abcdefghijklmnopqrstuvwxyz"
@@ -61,7 +54,10 @@ def decrypt(dword)
 end
 
 
-encrypt("abc")
-encrypt("zed")
-decrypt("bcd")
-decrypt("afe") 
+# encrypt("abc")
+# encrypt("zed")
+# decrypt("bcd")
+# decrypt("afe") 
+
+# This nested method works because it first encrypts the string that's input, then takes that output (from the encryption) and decrypts it, effectively "voiding" the original encryption.
+decrypt(encrypt("swordfish"))
