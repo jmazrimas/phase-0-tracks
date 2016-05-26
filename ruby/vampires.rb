@@ -1,8 +1,12 @@
+
+# Initial check for how many employees
 puts "How many employees to process?"
 numemployees=gets.chomp
 
+# set loop count to 0
 iter=0
 
+# start loop of questions
 while iter<numemployees.to_i
 	puts "What is your name?"
 	name=gets.chomp
@@ -10,14 +14,14 @@ while iter<numemployees.to_i
 	puts "How old are you?"
 	age=gets.chomp
 	age=age.to_i
+	
+	require 'date'
+	puts "What is your birthday? (dd/mm/yyyy)"
+	birthday=gets.chomp
+	birthday=Date.parse(birthday)
+	currentdate=DateTime.now
 
-	puts "What year were you born?"
-	year=gets.chomp
-	year=year.to_i
-
-		currentyear=Time.new.year.to_i
-
-		yearage=currentyear-year
+		yearage=(currentdate-birthday).to_i/365
 
 		if yearage!=age
 			agecheck=false
