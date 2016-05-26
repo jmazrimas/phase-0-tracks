@@ -1,4 +1,4 @@
-
+################PSEUDO###################
 
 # encrypt method
 # get length of input string
@@ -14,6 +14,23 @@
 # 	subtract 1 from current position
 # 	output letter from index that matches that position
 
+# ask user if they want to encypt or decypt
+# ask them for the string
+# conduct the operation
+# print to screen
+################PSEUDO###################
+
+answer=nil
+
+loop do
+	puts "do you want to encrypt or decrypt?"
+	answer=gets.chomp
+	break if answer=="encrypt"
+	break if answer=="decrypt"
+end
+
+puts "what is the password you want to #{answer}?"
+word=gets.chomp
 
 def encrypt(eword)
 	strlen=eword.length
@@ -27,7 +44,7 @@ def encrypt(eword)
 	end
 	counter+=1
 	end
-	p eword
+	return eword
 end
 
 
@@ -50,14 +67,19 @@ def decrypt(dword)
 	end
 	counter+=1
 	end
-	p dword
+	return dword
 end
 
+if answer=="encrypt"
+	p encrypt(word)
+else p decrypt(word)
+end
 
 # encrypt("abc")
 # encrypt("zed")
 # decrypt("bcd")
 # decrypt("afe") 
 
-# This nested method works because it first encrypts the string that's input, then takes that output (from the encryption) and decrypts it, effectively "voiding" the original encryption.
+# This nested method works because it first encrypts the string that's input, then takes that output (from the encryption) 
+# and decrypts it, effectively "voiding" the original encryption.
 decrypt(encrypt("swordfish"))
