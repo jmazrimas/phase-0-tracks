@@ -1,4 +1,16 @@
+def create_array(item_1, item_2, item_3)
+	[item_1, item_2, item_3]
+end
 
+p create_array("test1", "test2", "test3")
+
+def add_to_array(array, item_to_add)
+	array << item_to_add
+end
+
+p add_to_array([], "2")
+
+p add_to_array([2,3,false], "cat")
 
 testarray=[]
 
