@@ -58,12 +58,6 @@
 	def clientage
 		puts "Client's age? (please use whole number)"
 		cage = gets.chomp
-		# cage = cage.to_i
-		# while cage==0
-		# 	puts "Please provide client's age is whole numbers"
-		# 	cage = gets.chomp
-		# 	cage = cage.to_i
-		# end
 		while checkifnumber(cage) ==false
 			puts "Please provide client's age in whole numbers"
 			cage = gets.chomp
