@@ -163,4 +163,3 @@
 	$client_info.each { | k,v | puts "#{k} = #{v}"}
 
 	askforedits
-
