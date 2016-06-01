@@ -13,98 +13,154 @@
 # 	print the resulting array
 # 	call another method to make edits
 
-$client_info={}
+#####################################
+#####################################
+########## BUSINESS LOGIC ##########
+#####################################
+#####################################
 
-def addtoclienthash(idx,val)
-	$client_info[idx]=val
-end
+	$client_info={}
 
-def checkifnumber(val)
-	valnew=val.to_i
-	if valnew==0
-		false
-	else true
+	def addtoclienthash(idx,val)
+		$client_info[idx]=val
 	end
-end
 
-def checkyesno(val)
-	if val.downcase=="y"
-		true
-	elsif val.downcase=="n"
-		false
-	else "badvalue"
+	def checkifnumber(val)
+		valnew=val.to_i
+		if valnew==0
+			false
+		else true
+		end
 	end
-end
 
-def checkanswerlen(text,len)
-	if text.length<=len
-		true
-	else false
+	def checkyesno(val)
+		if val.downcase=="y"
+			true
+		elsif val.downcase=="n"
+			false
+		else "badvalue"
+		end
 	end
-end
 
-def clientname
-	puts "Client name?"
-	cname=gets.chomp
-	addtoclienthash(:clientname,cname)
-end
+	def checkanswerlen(text,len)
+		if text.length<=len
+			true
+		else false
+		end
+	end
 
-def clientage
-	puts "Client's age? (please use whole number)"
-	cage = gets.chomp
-	# cage = cage.to_i
-	# while cage==0
-	# 	puts "Please provide client's age is whole numbers"
-	# 	cage = gets.chomp
-	# 	cage = cage.to_i
-	# end
-	while checkifnumber(cage) ==false
-		puts "Please provide client's age in whole numbers"
+	def clientname
+		puts "Client name?"
+		cname=gets.chomp
+		addtoclienthash(:name,cname)
+	end
+
+	def clientage
+		puts "Client's age? (please use whole number)"
 		cage = gets.chomp
-	end		
-	addtoclienthash(:age,cage)
-end
+		# cage = cage.to_i
+		# while cage==0
+		# 	puts "Please provide client's age is whole numbers"
+		# 	cage = gets.chomp
+		# 	cage = cage.to_i
+		# end
+		while checkifnumber(cage) ==false
+			puts "Please provide client's age in whole numbers"
+			cage = gets.chomp
+		end		
+		addtoclienthash(:age,cage)
+	end
 
-def clientstyle
-	puts "In less that 30 characters, describe the client's style"
-	cstyle=gets.chomp
-	while checkanswerlen(cstyle,30) == false
-		puts "Please describe in less than 30 characters"
+	def clientstyle
+		puts "In less that 30 characters, describe the client's style"
 		cstyle=gets.chomp
+		while checkanswerlen(cstyle,30) == false
+			puts "Please describe in less than 30 characters"
+			cstyle=gets.chomp
+		end
+		addtoclienthash(:style,cstyle)
 	end
-end
 
-def numrooms
-	puts "Number of rooms to be decorated?"
-	crooms = gets.chomp
-	while checkifnumber(crooms)==false
-		puts "Please provide the number of rooms in whole numbers"
+	def clientnumrooms
+		puts "Number of rooms to be decorated?"
 		crooms = gets.chomp
+		while checkifnumber(crooms)==false
+			puts "Please provide the number of rooms in whole numbers"
+			crooms = gets.chomp
+		end
+		addtoclienthash(:rooms,crooms)
 	end
-	addtoclienthash(:rooms,crooms)
-end
 
-def clientblue
-	puts "Does the client like the color blue? (y/n)"
-	blueraw = gets.chomp
-	while checkyesno(blueraw) == "badvalue"
-		puts "Please indicate whether the client likes blue with a 'y' or a 'n' only."
+	def clientblue
+		puts "Does the client like the color blue? (y/n)"
 		blueraw = gets.chomp
+		while checkyesno(blueraw) == "badvalue"
+			puts "Please indicate whether the client likes blue with a 'y' or a 'n' only."
+			blueraw = gets.chomp
+		end
+		addtoclienthash(:likesblue,checkyesno(blueraw))
 	end
-	addtoclienthash(:likesblue,checkyesno(blueraw))
-end
 
-def clientstripes
-	puts "Does the client like stripes? (y/n)"
-	stripesraw = gets.chomp
-	while checkyesno(stripesraw) == "badvalue"
-		puts "Please indicate whether the client likes stripes with a 'y' or a 'n' only."
+	def clientstripes
+		puts "Does the client like stripes? (y/n)"
 		stripesraw = gets.chomp
+		while checkyesno(stripesraw) == "badvalue"
+			puts "Please indicate whether the client likes stripes with a 'y' or a 'n' only."
+			stripesraw = gets.chomp
+		end
+		addtoclienthash(:likesstripes,checkyesno(stripesraw))
 	end
-	addtoclienthash(:likesblue,checkyesno(stripesraw))
-end
 
 
-clientstyle
+	def runquestions
+		clientname
+		clientage
+		clientstyle
+		clientnumrooms
+		clientblue
+		clientstripes
+	end
 
-p $client_info.values
+	def editchecker(field)
+		while $client_info[field.downcase.to_sym] == nil
+			puts "That's not the name of a field, please provide a valid field name"
+			field=gets.chomp
+			p field.downcase.to_sym
+		end
+	end
+
+	def editmaker
+		puts "What field would you like to edit?"
+		field=gets.chomp
+		editchecker(field)
+		puts "What value would you like to insert for #{field}?"
+		value=gets.chomp
+		addtoclienthash(field.downcase.to_sym,value)
+	end
+
+	def askforedits
+		puts "Do you want to make any edits to the above? (y/n)"
+		edits=gets.chomp
+		while checkyesno(edits) == "badvalue"
+			puts  "Please indicate whether you'd like to make any edits with a 'y' or a 'n' only."
+			edits=gets.chomp
+		end
+		if checkyesno(edits) == true
+			editmaker
+			$client_info.each { | k,v | puts "#{k} = #{v}"}
+		else
+		end
+	end
+
+#####################################
+#####################################
+########## USER INTERFACE ##########
+#####################################
+#####################################
+
+	runquestions
+
+	$client_info.each { | k,v | puts "#{k} = #{v}"}
+
+	askforedits
+
