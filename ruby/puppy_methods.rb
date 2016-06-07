@@ -67,7 +67,7 @@ class Biker
   end
   
   def initialize
-    print "instance created"
+    # print "instance created"
   end
   
 end
@@ -75,23 +75,27 @@ end
 biker_array = []
 
 
-mike = Biker.new
-biker_array << mike
-
-mike = Biker.new
-biker_array << mike
-
+# mike = Biker.new
+# biker_array << mike
 
 
 # counter = 1
-# 50.times do 
+50.times do 
+  new_biker = Biker.new
+  biker_array << new_biker
 #   # bikername= 
 #   "biker#{counter}" = Biker.new
 #   # puts bikername
 #   mike = Biker.new
 #   puts mike
 #   # puts bikername
-#   counter+=1
-# end
+  # counter+=1
+end
 
-  p biker_array
+
+biker_array.each do |current_biker|
+  puts current_biker.ride_to("work")
+  puts current_biker.change_tire
+end
+
+
