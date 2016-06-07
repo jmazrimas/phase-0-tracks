@@ -78,3 +78,27 @@ update_quantity("celery,100")
 p $list_hash
 
 print_list
+
+
+# What did you learn about pseudocode from working on this challenge?
+#--- Frankly, we didn't do enough of it. Our driver was doing a lot of the pseudocoding using rough code, so we more or less ended up just writing ugly code and then fixing it.
+
+
+# What are the tradeoffs of using arrays and hashes for this challenge?
+#--- We used both, and not 100% what I'd call "by choice". The option of not using a hash would have probably been to manage all the data via arrays of arrays, and frankly both my pair and I would have found that much too confusing.
+
+
+# What does a method return?
+#--- Whatever you tell it to. It can return a hash, an array, a string, etc.
+
+
+# What kind of things can you pass into methods as arguments?
+#--- We've used mostly single variables up until this point (strings, integers), but you can also pass arrays, hashes or code blocks. I'm definitely still very shaky on passing in code blocks.
+
+
+# How can you pass information between methods?
+# --- I think to two basic ideas are that you can explicitly pass information in to a method by providing that information as arguments for the parameter(s) that method uses. You can also have global variables, arrays or hashes that can store that information globally so that multiple methods can access it.
+
+
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+# --- I felt pretty confident with hashes and arrays going in to this, but implementing them and deciding which one to use ended up being very confusing. The idea of looping through an array or hash makes a lot of sense, and I think that's a really important concept. Things like the usage of Hash[]  on line 13 are still somewhat confusing, since clearly that's a class-level "method" being used, but there's not explicit "method" being called (i.e., I would expect a "." after "Hash").
