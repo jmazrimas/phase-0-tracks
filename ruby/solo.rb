@@ -64,7 +64,7 @@ class DbcStudent
 	def figure_out(concept)
 		@feeling_good=true
 	end
-
+end
 
 def create_student
 	puts "Student Name?"
