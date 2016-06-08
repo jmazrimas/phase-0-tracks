@@ -90,6 +90,8 @@ def create_student
 	feeling_good=boolean_convert(feeling_good)
 
 	$students << DbcStudent.new(name,age,location,current_week)
+
+	#I actually default "feeling good" in the initialize method, but wanted to experiment with making changes via the attr_accessor
 	$students.last.feeling_good=feeling_good
 
 end
