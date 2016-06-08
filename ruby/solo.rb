@@ -11,6 +11,32 @@
 
 ###########BUSINESS LOGIC
 
+$students=[]
+
+def numcheck(number)
+	while "#{number.to_i}"!=number
+		puts "I didn't understand that input -- could you please provide an integer?"
+		number = gets.chomp
+	end
+	number.to_i
+end
+
+def boolean_check(value)
+	if value.downcase == "y" || value.downcase == "n"
+		true
+	else false
+	end
+end
+
+def boolean_convert(value)
+	if value.downcase=="y"
+		true
+	elsif value.downcase=="n"
+		false
+	else nil
+	end
+end
+
 class DbcStudent
 	attr_reader :name, :location
 	attr_accessor :age, :current_week, :feeling_good
@@ -21,28 +47,24 @@ class DbcStudent
 		@current_week = current_week
 		@feeling_good = true
 	end
-end
 
-def numcheck(number)
-	while "#{number.to_i}"!=number
-		puts "I didn't understand that input -- could you please provide an integer?"
-		number = gets.chomp
+	def advance_a_week
+		@current_week=+1
 	end
-	number.to_i
-end
 
-def booleancheck(value)
-	if value == true
-		true
-	elsif value == false
-		false
-	elsif value.downcase == "y"
-		true
-	elsif value.downcase == "n"
-		false
-	else nil
+	def change_locations(new_location)
+		puts "I'm moving to #{new_location}!!"
+		@location=new_location
 	end
-end
+
+	def get_really_pissed_at(concept)
+		@feeling_good=false
+	end
+
+	def figure_out(concept)
+		@feeling_good=true
+	end
+
 
 def create_student
 	puts "Student Name?"
@@ -61,25 +83,30 @@ def create_student
 
 	puts "Is the student currently feeling good? (y/n)"
 	feeling_good=gets.chomp
-	while booleancheck(feeling_good)!=true && booleancheck(feeling_good)!=false
+	while boolean_check(feeling_good)==false
 		puts "please answer with a 'y' or an 'n'"
 		feeling_good=gets.chomp
-		feeling_good=booleancheck(feeling_good)
 	end
+	feeling_good=boolean_convert(feeling_good)
 
-	student=DbcStudent.new(name,age,location,current_week)
-
-	student.feeling_good=feeling_good
+	$students << DbcStudent.new(name,age,location,current_week)
+	$students.last.feeling_good=feeling_good
 
 end
 
 
 ###########USER INTERFACE
 
-puts "How many students do you want to create?"
-num_students = gets.chomp
-num_students=numcheck(num_students)
-num_students.times do |i|
-	puts "create student #{i+1}"
+puts "Do you want to create a student (y/n)?"
+create_another = gets.chomp
+boolean_check(create_another)
+while boolean_convert(create_another) == true
 	create_student
+	puts "Do you want to create another (y/n)?"
+	create_another=gets.chomp
+	boolean_check(create_another)	
+end
+
+$students.each do |instance|
+	puts "#{instance.name} in #{instance.location}: age = #{instance.age}, current week = #{instance.current_week} and feeling good = #{instance.feeling_good}"
 end
