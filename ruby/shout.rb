@@ -10,9 +10,8 @@ module Shout
 		words + "! :)"
 	end
 
-	w!
 end
 
 
-Shout.yell_angrily("Shit")
-Shout.yell_happily("I love cereal")
+p Shout.yell_angrily("Shit")
+p Shout.yell_happily("I love cereal")
