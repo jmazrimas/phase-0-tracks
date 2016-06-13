@@ -10,7 +10,11 @@ reverse = function(word) {
 	for (i=word.length-1;i>-1;i-=1) {
 		newword=newword+word[i]
 	}
-	console.log(newword)
+	return newword
 }
 
-reverse("shit")
+var newword=reverse("I'm going to reverse this!")
+
+if (newword&&(5>4)) {
+	console.log(newword)
+}
