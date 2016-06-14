@@ -6,5 +6,8 @@ var horseName = ['bucky','chuck','chief','hugo'];
 
 colors.push('white');
 
-color.push('barry');
+horseName.push('barry');
 
+console.log(colors);
+
+console.log(horseName);
