@@ -38,25 +38,23 @@ console.log(longest_finder(string_array3));
 //////////////////////////////////////////////
 //////////////////////////////////////////////
 
-var object_1 = {job: "plumber", name: "Steven", age: 54};
-var object_2 = {name: "Barry", age: 54, likes_ice_cream: true};
-
-matching_keys = [];
+var person_1 = {job: "plumber", name: "Steven", age: 54};
+var person_2 = {name: "Barry", age: 54, likes_ice_cream: true};
+var person_3 = {name: "Larry", age: 20, likes_ice_cream: false};
 
 var hasMatchingKeys = function(object_1, object_2) {
+	var keycheck = false
 	for (var keyval in object_1) {
 		if (object_2.hasOwnProperty(keyval)) {
 			if (object_2[keyval]===object_1[keyval]) {
-				matching_keys.push(keyval)
+				keycheck = true
 			}
 		}
 	}
-	return matching_keys.length>0
+	return keycheck;
 }
 
-hasMatchingKeys(object_1,object_2);
-
-// console.log(object_1.name===object_2.name);
-// console.log(object_1.name);
-// console.log(object_2.name);
-//console.log(matching_keys);
+//Results in "true"
+console.log(hasMatchingKeys(person_1,person_2));
+//Results in "false"
+console.log(hasMatchingKeys(person_2,person_3));
