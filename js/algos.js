@@ -76,10 +76,10 @@ var hasMatchingKeys = function(object_1, object_2) {
 	return keycheck;
 }
 
-// //Results in "true"
-// console.log(hasMatchingKeys(person_1,person_2));
-// //Results in "false"
-// console.log(hasMatchingKeys(person_2,person_3));
+//Results in "true"
+console.log(hasMatchingKeys(person_1,person_2));
+//Results in "false"
+console.log(hasMatchingKeys(person_2,person_3));
 
 
 //////////////////////////////////////////////
@@ -111,6 +111,3 @@ for (k=0;k<10;k++) {
 	console.log(thearray);
 	console.log(longest_finder(thearray));
 }
-
-
-
