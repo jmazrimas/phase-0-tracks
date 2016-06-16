@@ -7,27 +7,49 @@
 // Get the index of that number in the number array and we know that the same index in the word array is the corresponding word
 // Return that word 
 
-var longest_finder = function(string_array) {
-	var counts = []
-	for (i=0; i<string_array.length; i++) {
-		counts.push(string_array[i].length)
-	}
-	//below we're creating a new array (ordered...) by sorting the original.
-	ordered_counts = counts.slice(0).sort();
-	return string_array[counts.indexOf(ordered_counts[0])];
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//Below was my original attempt. I realized this didn't work properly
+//when doing release 2.2, so i changed it to the code below the commented out section here.
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+// var longest_finder = function(string_array) {
+// 	var counts = []
+// 	for (l=0; l<string_array.length; l++) {
+// 		counts.push(string_array[l].length)
+// 	}
+// 	//below we're creating a new array (ordered...) by sorting the original.
+// 	// ordered_counts = counts.slice(0).sort();
+// 	// return string_array[counts.indexOf(ordered_counts[0])];
+// 	return string_array[counts.indexOf(counts.slice(0).sort()[0])];
+// }
+
+var longest_finder = function(stringArray) {
+	newArray = stringArray.sort(function(a,b) {
+		if (a.length > b.length) {
+			return -1
+		}
+		if (a.length < b.length) {
+			return 1
+		}
+		if (a.length === b.length) {
+			return 0
+		}
+	})
+	return newArray[0];
 }
 
-//////////Driver code for longest_finder:
-var string_array1 = ["string 1", "string 2","the longest one","short","vs",3,"something"];
+// //////////Driver code for longest_finder:
+// var string_array1 = ["string 1", "string 2","the longest one","short","vs",3,"something"];
 
-//Right now, the longest_finder function doesn't handle this very well...
-var string_array2 = ["one","two","three"]
+// //Right now, the longest_finder function doesn't handle this very well...
+// var string_array2 = ["one","two","three"]
 
-var string_array3 = ["very long, very, very long indeed","short","longer"]
+// var string_array3 = ["very long, very, very long indeed","short","longer"]
 
-console.log(longest_finder(string_array1));
-console.log(longest_finder(string_array2));
-console.log(longest_finder(string_array3));
+// console.log(longest_finder(string_array1));
+// console.log(longest_finder(string_array2));
+// console.log(longest_finder(string_array3));
 
 //////////////////////////////////////////////
 //////////////////////////////////////////////
@@ -54,7 +76,41 @@ var hasMatchingKeys = function(object_1, object_2) {
 	return keycheck;
 }
 
-//Results in "true"
-console.log(hasMatchingKeys(person_1,person_2));
-//Results in "false"
-console.log(hasMatchingKeys(person_2,person_3));
+// //Results in "true"
+// console.log(hasMatchingKeys(person_1,person_2));
+// //Results in "false"
+// console.log(hasMatchingKeys(person_2,person_3));
+
+
+//////////////////////////////////////////////
+//////////////////////////////////////////////
+//////////////////////////////////////////////
+//Release 2 Below (random data generator)
+//////////////////////////////////////////////
+//////////////////////////////////////////////
+//////////////////////////////////////////////
+//////////////////////////////////////////////
+
+var randomArrayData = function(len) {
+	test_array = [];
+	var charList = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	for (i=0; i<len; i++) {
+		var stringLen = Math.floor((Math.random()*10)+1);
+		var newstring = ""
+		for (j=0; j<stringLen; j++) {
+			newstring+=charList[Math.floor((Math.random()*charList.length))]
+		}
+		test_array.push(newstring);
+	}
+	return test_array
+}
+
+
+for (k=0;k<10;k++) {
+	var thearray = randomArrayData(5);
+	console.log(thearray);
+	console.log(longest_finder(thearray));
+}
+
+
+
