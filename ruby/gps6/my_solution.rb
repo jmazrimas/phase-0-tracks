@@ -106,3 +106,19 @@ end
 
 #=======================================================================
 # Reflection Section
+
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+#     One uses a string as a key, the other uses a symbol as a key
+# What does require_relative do? How is it different from require?
+#     Copied from above:
+#     require uses looks for the class/file you're attempt to access relative to the directory that you are running the calling code from
+#     require_relative looks for the class/file you're attempting to access relative to the directory where the calling code resides
+# What are some ways to iterate through a hash?
+#     The .each method allows you to iterate over the keys and values -- you can also use each_key and each_value to look at those individually.
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+#     This method was using instance variables as inputs which doesn't really make sense -- if you are using an instance variable as a 
+#     datapoint, it's available everywhere in the class, so you should just reference the variable itself when you need it, as opposed to 
+#     explicitly passing it to another method.
+# What concept did you most solidify in this challenge?
+#     Cases -- I wasnt' really using them much, and this really helped get some practice on that. Also, DRY is something I need a lot of practice with
+#     and this exercise was helpful there, too.
