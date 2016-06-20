@@ -29,24 +29,31 @@ class VirusPredictor
 
   private
 
+# added these two methods to simplify calculating the rates of death and speed of spread
+def death_rate
+    case 
+    when @population_density >= 200 then 0.4
+    when @population_density >= 150 then 0.3
+    when @population_density >= 100 then 0.2
+    when @population_density >= 50 then 0.1
+    else 0.05 
+    end 
+end
+
+def spread_rate
+    case 
+    when @population_density >= 200 then 0.5
+    when @population_density >= 150 then 1
+    when @population_density >= 100 then 1.5
+    when @population_density >= 50 then 2
+    else 2.5 
+    end 
+end
+
 # This method uses the data in the instance variable to do a basic calculation of how many deaths might occur based on the population density
-
   def predicted_deaths
-    # predicted deaths is solely based on population density
-    if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
-    elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
-    elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
-    elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
-    else
-      number_of_deaths = (@population * 0.05).floor
-    end
-
+    number_of_deaths = (@population * death_rate).floor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
-
   end
 
 # This method uses the data in the instance variables to do a basic calculation of speed of outbreak based on population density
@@ -54,21 +61,21 @@ class VirusPredictor
   def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
-    speed = 0.0
+    # speed = spread_rate
 
-    if @population_density >= 200
-      speed += 0.5
-    elsif @population_density >= 150
-      speed += 1
-    elsif @population_density >= 100
-      speed += 1.5
-    elsif @population_density >= 50
-      speed += 2
-    else
-      speed += 2.5
-    end
+    # if @population_density >= 200
+    #   speed += 0.5
+    # elsif @population_density >= 150
+    #   speed += 1
+    # elsif @population_density >= 100
+    #   speed += 1.5
+    # elsif @population_density >= 50
+    #   speed += 2
+    # else
+    #   speed += 2.5
+    # end
 
-    puts " and will spread across the state in #{speed} months.\n\n"
+    puts " and will spread across the state in #{spread_rate} months.\n\n"
 
   end
 
