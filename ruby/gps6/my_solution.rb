@@ -93,7 +93,7 @@ end
 # alaska.virus_effects
 
 STATE_DATA.each do |state, data_hash|
-  new_predictor = VirusPredictor.new(State, data_hash[population_density], data_hash[population])
+  new_predictor = VirusPredictor.new(state, data_hash[:population_density], data_hash[:population])
   new_predictor.virus_effects
 end
 
