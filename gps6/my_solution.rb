@@ -4,11 +4,15 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# require uses looks for the class/file you're attempt to access relative to the directory that you are running the calling code from
+# require_relative looks for the class/file you're attempting to access relative to the directory where the calling code resides
+
 require_relative 'state_data'
 
 class VirusPredictor
+
+# The initialize method runs when a new instance of VirusPredictor is created, and it populates the instance variables with data from
+#   'state_data'
 
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
@@ -16,12 +20,16 @@ class VirusPredictor
     @population_density = population_density
   end
 
+# This method calls two other methods to return the text output to the user. This method is called below right after each instance is initialized
+
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
   end
 
   private
+
+# This method uses the data in the instance variable to do a basic calculation of how many deaths might occur based on the population density
 
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
@@ -40,6 +48,8 @@ class VirusPredictor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
+
+# This method uses the data in the instance variables to do a basic calculation of speed of outbreak based on population density
 
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
