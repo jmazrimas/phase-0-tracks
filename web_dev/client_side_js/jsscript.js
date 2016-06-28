@@ -30,3 +30,16 @@ newh4.style.height="50px";
 h1header.appendChild(newh4);
 
 newh4.addEventListener("mouseover",addH4Text);
+
+// LOOP THROUGH SIMILAR TAGS
+var paragraphs = document.getElementsByTagName("p");
+
+for (i=0; i<paragraphs.length; i++) {
+	paragraphs[i].style.border="2px solid pink"
+}
+
+var uls = document.getElementsByTagName("ul");
+
+for (i=0; i<uls.length; i++) {
+	uls[i].style.fontSize="xx-large";
+}
