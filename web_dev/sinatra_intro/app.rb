@@ -57,3 +57,28 @@ get '/great_job' do
     "Good job"
   end
 end
+
+# Old school
+  # http://localhost:9393/add?num1=4&num2=5
+get '/add' do
+  num1 = params[:num1].to_i
+  num2 = params[:num2].to_i
+  "#{num1+num2}"
+end
+
+# New school
+  # http://localhost:9393/5/plus/9
+get '/:num1/plus/:num2' do
+  "#{params[:num1].to_i+params[:num2].to_i}"
+end
+
+#Search for students with name like
+get '/students/search/:namelike' do
+  namelike=params[:namelike]
+  students_like = db.execute("SELECT name, id FROM STUDENTS WHERE name LIKE ?",'%'+namelike+'%')
+  student_list=""
+  students_like.each do |student_hash|
+    student_list<<student_hash["name"].to_s+"<br>"
+  end
+  student_list
+end
