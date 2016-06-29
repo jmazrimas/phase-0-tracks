@@ -1,0 +1,8 @@
+
+.colx {
+	display: inline-block;
+	width: 20%;
+	border:10px solid blue;
+	font-weight: bold;
+	text-align: center;
+}

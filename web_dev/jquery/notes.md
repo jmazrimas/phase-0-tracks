@@ -5,3 +5,25 @@
 * Try to use some of those features on a test page
 * Look in to some more complex features/uses -- hopefully at this point I'll have a few keywords of what to look for and can potentially search out video overviews
     - Experiment with these features
+
+
+##Notes
+* Use these to encase jQuery script to ensure that html/css is completely loaded before running(?)
+    - $(document).ready(function() {        });
+    - $(function() {    })
+* Syntax for jQuery:
+    - For jQuery "effects" like fadeIn/fadeOut/etc:
+        + $("[elementID]").[methodname]([arguments]);
+        + $(".[cssClass]").[methodname]([arguments]);
+            * Note the "." before class names in the above example
+    - For css changes:
+        + $("[elementID]").css({color: 'red', fontWeight: 'bold'});
+    - Listeners:
+        ```
+        $("[elementID]").on('[action. i.e., click', function() {
+                $("[elementID]").[methodname]([arguments]);
+            }
+            );
+        ```
+* DOM Traversal
+    - 
