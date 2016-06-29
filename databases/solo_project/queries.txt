@@ -1,0 +1,58 @@
+
+select * from portfolios
+	Rich Guys|10
+	Other Guys|6
+	Normies|2
+
+update holdings set price = "5000.30" where security = "AAPL";
+	Rich Guys|AAPL|10000|5000.3|true
+	Rich Guys|F|30000|10.1|false
+	Rich Guys|FB|1110000|30.3|true
+	Normies|LULU|100|22.3|true
+	Normies|CAT|300|33.4|true
+	Other Guys|RACE|350|34.4|true
+	Other Guys|Some REIT|3650|66664.4|false
+
+select * from portfolios join holdings on name=portfolio
+	name|aggression|portfolio|security|shares|price|long
+	Rich Guys|10|Rich Guys|AAPL|10000|5000.3|true
+	Rich Guys|10|Rich Guys|F|30000|10.1|false
+	Rich Guys|10|Rich Guys|FB|1110000|30.3|true
+	Normies|2|Normies|LULU|100|22.3|true
+	Normies|2|Normies|CAT|300|33.4|true
+	Other Guys|6|Other Guys|RACE|350|34.4|true
+	Other Guys|6|Other Guys|Some REIT|3650|66664.4|false
+
+select name, security, price from portfolios join holdings on name=portfolio;
+	name|security|price
+	Rich Guys|AAPL|5000.3
+	Rich Guys|F|10.1
+	Rich Guys|FB|30.3
+	Normies|LULU|22.3
+	Normies|CAT|33.4
+	Other Guys|RACE|34.4
+	Other Guys|Some REIT|66664.4
+
+delete from holdings where price < 30
+	portfolio|security|shares|price|long
+	Rich Guys|AAPL|10000|5000.3|true
+	Rich Guys|FB|1110000|30.3|true
+	Normies|CAT|300|33.4|true
+	Other Guys|RACE|350|34.4|true
+	Other Guys|Some REIT|3650|66664.4|false
+
+
+select * from portfolios left join holdings on name=portfolio;
+    ^^^^this doesn't really show you much vs. an inner join, but if there was some portfolio that didn't have any holdings this would still display it
+
+    name|aggression|portfolio|security|shares|price|long
+    Rich Guys|10|Rich Guys|AAPL|10000|5000.3|true
+    Rich Guys|10|Rich Guys|FB|1110000|30.3|true
+    Other Guys|6|Other Guys|RACE|350|34.4|true
+    Other Guys|6|Other Guys|Some REIT|3650|66664.4|false
+    Normies|2|Normies|CAT|300|33.4|true
+
+select * from portfolios join holdings on name=portfolio and security="RACE";
+    name|aggression|portfolio|security|shares|price|long
+    Other Guys|6|Other Guys|RACE|350|34.4|true
+
