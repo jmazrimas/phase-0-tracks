@@ -1,8 +1,30 @@
 
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	/*width: 90%;*/
+	/*border: 5px solid black;*/
+}
+
 .colx {
-	display: inline-block;
-	width: 20%;
-	border:10px solid blue;
+	border:3px solid blue;
 	font-weight: bold;
 	text-align: center;
+	padding: .5%;
+	/*width: 22%;*/
+}
+
+
+.sub1 {
+	border: 2px dashed red;
+}
+
+.sub1-2 {
+	border: 2px dashed green;
+}
+
+.sub2 {
+	border: 2px dotted purple;
+	/*visibility: hidden;*/
 }

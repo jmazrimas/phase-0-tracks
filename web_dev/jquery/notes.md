@@ -6,8 +6,12 @@
 * Look in to some more complex features/uses -- hopefully at this point I'll have a few keywords of what to look for and can potentially search out video overviews
     - Experiment with these features
 
+##Notes on Process
+* Going through videos and mimicking what was being done was very useful.
+* Spent a little too much time on getting a good html/css template to work on - i.e., giving myself content to manipulate.
+* In general, experimenting as I go is consistently the most useful tool for me when it comes to learning something new.
 
-##Notes
+##Technical Notes
 * Use these to encase jQuery script to ensure that html/css is completely loaded before running(?)
     - $(document).ready(function() {        });
     - $(function() {    })
@@ -25,5 +29,13 @@
             }
             );
         ```
+        + Listener that references self/related elements:
+        ````
+        $('.colx').on('click', function() {
+        $(this).children().last().toggle();
+        }       
+        )
+        ````
 * DOM Traversal
-    - 
+    - .removeClass('[classname]')
+    - .addClass('[classname]')
