@@ -24,4 +24,11 @@ post '/students' do
   redirect '/'
 end
 
+get '/students/search' do
+	p params.to_s
+	@db_2 = db
+	erb :search_students
+end
+
+
 # add static resources
